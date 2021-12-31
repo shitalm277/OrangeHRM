@@ -65,7 +65,7 @@ public class MyStepDefs {
     @Then("User should be able to login successfully")
     public void user_should_be_able_to_login_successfully() {
         dashBoardPage.verifyUserIsOnDashBoardPage();
-        dashBoardPage.verifyUserIsSuccessfullyLoggedIn();
+        dashBoardPage.verifyUserIsSuccessfullyLoggedIn(loadProp.getProperty("loginUrl"));
     }
 
 

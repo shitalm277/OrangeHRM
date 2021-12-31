@@ -11,7 +11,6 @@ public class DashBoardPage extends Utils {
     By _viewPimModule = By.id("menu_pim_viewPimModule");
     By _pimAddEmployee = By.id("menu_pim_addEmployee");
     By _clickOnPIMMenu = By.cssSelector("a#menu_pim_viewPimModule");
-    By _welcomeName = By.xpath("//a[@id='welcome']");
 
     public void verifyUserIsOnDashBoardPage() {
         //verifying user is on dashboardpage
@@ -26,8 +25,8 @@ public class DashBoardPage extends Utils {
         Action seriesOfActions = builder.moveToElement(pim).moveToElement(addEmployee).click().build();
         seriesOfActions.perform();
     }
-    public void verifyUserIsSuccessfullyLoggedIn(){
-        Assert.assertEquals(driver.findElement(_welcomeName).getText(),loadProp.getProperty("FirstName"));
+    public void verifyUserIsSuccessfullyLoggedIn(String PageURL){
+        Assert.assertTrue(driver.getCurrentUrl().equals(PageURL));
     }
     public void userClickOnPIMMenu() {
         clickOnElement(_clickOnPIMMenu);
